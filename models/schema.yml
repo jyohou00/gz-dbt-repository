@@ -1,0 +1,19 @@
+#schema.yml
+version: 2
+sources:
+  - name: raw_bigquery_data
+    database: optical-weft-475014-k6
+    schema: gz_raw_data as raw
+    loader: bigquery
+    freshness: 
+      error_after:
+        count: 2
+        period: day
+      warn_after:
+        count: 1
+        period: day
+    tables:
+      - name: raw_gz_sales as sales
+      - name: raw_gz_product as product
+      - name: raw_gz_ship as ship
+    
