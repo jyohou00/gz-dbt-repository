@@ -3,7 +3,7 @@ version: 2
 sources:
   - name: raw_bigquery_data
     database: optical-weft-475014-k6
-    schema: gz_raw_data as raw
+    schema: gz_raw_data
     loader: bigquery
     freshness: 
       error_after:
@@ -13,7 +13,7 @@ sources:
         count: 1
         period: day
     tables:
-      - name: raw_gz_sales as sales
-      - name: raw_gz_product as product
-      - name: raw_gz_ship as ship
+      - name: raw_gz_sales
+      - name: raw_gz_product
+      - name: raw_gz_ship
     
