@@ -2,7 +2,7 @@ with
 
 source as (
 
-    select * from {{ source('raw_bigquery_data', 'raw_gz_ship') }}
+    select * from {{ source('gz_raw_data', 'raw_gz_ship') }}
 
 ),
 
@@ -13,7 +13,7 @@ renamed as (
         shipping_fee,
         logcost,
         ship_cost,
-        cast (ship_cost as integer) as ship_cost
+        cast (ship_cost as INT64) as ship_cost
 
     from source
 

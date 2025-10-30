@@ -1,11 +1,8 @@
 #schema.yml
 version: 2
 sources:
-  - name: raw_bigquery_data
-    database: optical-weft-475014-k6
-    schema: gz_raw_data
-    loader: bigquery
-    freshness: 
+  - name: gz_raw_data
+    freshness:
       error_after:
         count: 2
         period: day
@@ -13,7 +10,6 @@ sources:
         count: 1
         period: day
     tables:
-      - name: raw_gz_sales
+      - name: raw_gz_sales     
       - name: raw_gz_product
       - name: raw_gz_ship
-    
